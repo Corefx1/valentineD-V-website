@@ -8,16 +8,15 @@
         body {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             height: 100vh;
-            background: linear-gradient(135deg, #ff9a9e, #d484f1);
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
             font-family: Arial, sans-serif;
             text-align: center;
         }
         h1 {
             font-size: 24px;
-            color: #fff;
             margin-bottom: 20px;
         }
         #buttons {
@@ -26,29 +25,28 @@
         }
         button {
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 18px;
             border: none;
             cursor: pointer;
-            transition: 0.3s;
-            border-radius: 8px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
         }
         #yes {
-            background-color: #ff4d79;
+            background-color: #ff4d6d;
             color: white;
         }
         #no {
-            background-color: #555;
-            color: white;
+            background-color: #ccc;
         }
         #message {
             margin-top: 20px;
-            font-size: 18px;
-            color: white;
+            font-size: 20px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <h1 id="question">Will you be my Valentine, Miss's Dhruvi Patel? I would like to turn you into MY Mrs for the day😶‍🌫️<3</h1>
+    <h1 id="title">Will you be my valentines Miss's Dhruvi Patel, I would like to turn you into MY Mrs for the day😶‍🌫️<3</h1>
     <div id="buttons">
         <button id="yes" onclick="sayYes()">Yes</button>
         <button id="no" onclick="sayNo()">No</button>
@@ -57,33 +55,30 @@
 
     <script>
         let noClickCount = 0;
+        const messages = [
+            "Whaaaa butt whyy nott??🥺🥺", 
+            "Baeee cmonnn😔😔", 
+            "Click yes already otherwise ill kidnap Daksh & Reeyan😾😾", 
+            "Baeee iluvvyouu thoo🥺🫶🏽", 
+            "Bae pleasseeeeee://", 
+            "But whyyyy nottt☹️☹️", 
+            "Pleasee clicks yess baeeeee☹️", 
+            "Baeee ill buyyy youuuu soo muchh teddy bears🥺🧸", 
+            "YKW, watch me disable the 'No' button😡😡"
+        ];
         function sayNo() {
-            const messages = [
-                "Whaaaa butt whyy nott??🥺🥺",
-                "Baeee cmonnn😔😔",
-                "Click yes already otherwise I'll kidnap Daksh & Reeyan😾😾",
-                "Baeee iluvvyouu thoo🥺🫶🏽",
-                "Bae pleasseeeeee://",
-                "But whyyyy nottt☹️☹️",
-                "Pleasee clicks yess baeeeee☹️",
-                "Baeee ill buyyy youuuu soo muchh teddy bears🥺🧸",
-                "YKW, watch me disable the 'No' button😡😡"
-            ];
-            
-            if (noClickCount < messages.length) {
+            if (noClickCount < 9) {
                 document.getElementById("message").innerText = messages[noClickCount];
                 noClickCount++;
-                document.getElementById("yes").style.fontSize = `${16 + noClickCount * 5}px`;
-            }
-            if (noClickCount === messages.length) {
-                document.getElementById("no").style.display = "none";
+                document.getElementById("yes").style.fontSize = (18 + noClickCount * 5) + "px";
+            } else {
+                document.getElementById("no").remove();
                 document.getElementById("message").innerText = "Haahahha now what huh, SAY YES😈";
             }
         }
-        
         function sayYes() {
-            document.body.innerHTML = `<h1>YAAAAYYYYYYYY, I KNEW YOU'D SAY YESS POOKIEEE🧸💕</h1>
-            <p>dw I promise to watch anime and read romance books with you late at night📖😴, and I promise to put ur needs FIRST🫠🍫. I'll make sure you get the Dogs you want bae😘🐾</p>`;
+            document.getElementById("message").innerText = "YAAAAYYYYYYYY, I KNEW YOU'D SAY YESS POOKIEEE🧸💕, dw I promise to watch anime and read romance books with you late at night📖😴, and I promise to put ur needs FIRST🫠🍫. I'll make sure you get the Dogs you want bae😘🐾";
+            document.getElementById("buttons").remove();
         }
     </script>
 </body>
