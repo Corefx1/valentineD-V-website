@@ -6,73 +6,84 @@
     <title>Valentine's Proposal</title>
     <style>
         body {
-            background: url('https://source.unsplash.com/1600x900/?romantic,love') no-repeat center center/cover;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
             font-family: Arial, sans-serif;
+            text-align: center;
             color: white;
-            padding-top: 10%;
         }
         h1 {
-            font-size: 30px;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 15px;
-            border-radius: 10px;
+            font-size: 28px;
+            margin-bottom: 20px;
         }
         #buttons {
-            margin-top: 20px;
+            display: flex;
+            gap: 20px;
         }
-        #yesButton, #noButton {
+        button {
             font-size: 18px;
             padding: 10px 20px;
-            margin: 10px;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s;
         }
-        #yesButton {
+        #yes {
             background-color: #ff4d6d;
             color: white;
         }
-        #noButton {
-            background-color: #444;
-            color: white;
+        #no {
+            background-color: #ffffff;
+            color: #ff4d6d;
         }
     </style>
 </head>
 <body>
-    <h1 id="question">Will you be my Valentine Miss's Dhruvi Patel, I would like to turn you into MY Mrs for the day😶‍🌫️<3</h1>
-    <div id="buttons">
-        <button id="yesButton" onclick="sayYes()">Yes</button>
-        <button id="noButton" onclick="sayNo()">No</button>
-    </div>
+    <h1 id="title">Will you be my valentines Miss's Dhruvi Patel, I would like to turn you into MY Mrs for the day😶‍🌫️<3</h1>
     <p id="message"></p>
-    
+    <div id="buttons">
+        <button id="yes" onclick="yesClicked()">Yes</button>
+        <button id="no" onclick="noClicked()">No</button>
+    </div>
     <script>
         let noCount = 0;
-        function sayNo() {
-            const messages = [
-                "Whaaaa butt whyy nott??🥺🥺",
-                "Baeee cmonnn😔😔",
-                "Click yes already otherwise ill kidnap Daksh & Reeyan😾😾",
-                "Baeee iluvvyouu thoo🥺🫶🏽",
-                "Bae pleasseeeeee://",
-                "But whyyyy nottt☹️☹️",
-                "Pleasee clicks yess baeeeee☹️",
-                "Baeee ill buyyy youuuu soo muchh teddy bears🥺🧸",
+        let yesButton = document.getElementById("yes");
+        let noButton = document.getElementById("no");
+        let message = document.getElementById("message");
+        
+        function noClicked() {
+            noCount++;
+            let messages = [
+                "Whaaaa butt whyy nott??🥺🥺", 
+                "Baeee cmonnn😔😔", 
+                "Click yes already otherwise ill kidnap Daksh & Reeyan😾😾", 
+                "Baeee iluvvyouu thoo🥺🫶🏽", 
+                "Bae pleasseeeeee://", 
+                "But whyyyy nottt☹️☹️", 
+                "Pleasee clicks yess baeeeee☹️", 
+                "Baeee ill buyyy youuuu soo muchh teddy bears🥺🧸", 
                 "Ykw, watch me disable the No button😡😡"
             ];
-            if (noCount < messages.length) {
-                document.getElementById("message").innerText = messages[noCount];
-                noCount++;
-                document.getElementById("yesButton").style.fontSize = `${18 + noCount * 5}px`;
+            
+            if (noCount < 10) {
+                message.innerText = messages[noCount - 1];
+                yesButton.style.transform = `scale(${1 + noCount * 0.2})`;
             }
-            if (noCount === messages.length) {
-                document.getElementById("noButton").disabled = true;
-                document.getElementById("message").innerText = "Haahahha now what huh, SAY YES😈";
+            
+            if (noCount === 9) {
+                noButton.disabled = true;
+                message.innerText = "Haahahha now what huh, SAY YES😈";
             }
         }
-        function sayYes() {
-            document.getElementById("message").innerText = "YAAAAYYYYYYYY, I KNEW YOU'D SAY YESS POOKIEEE🧸💕, dw I promise to watch anime and read romance books with you late at night📖😴, and I promise to put ur needs FIRST🫠🍫. I'll make sure you get the Dogs you want bae😘🐾";
+        
+        function yesClicked() {
+            message.innerText = "YAAAAYYYYYYYY, I KNEW YOU'D SAY YESS POOKIEEE🧸💕, dw I promise to watch anime and read romance books with you late at night📖😴, and I promise to put ur needs FIRST🫠🍫. I'll make sure you get the Dogs you want bae😘🐾";
+            yesButton.style.transform = "scale(1)";
+            noButton.style.display = "none";
         }
     </script>
 </body>
