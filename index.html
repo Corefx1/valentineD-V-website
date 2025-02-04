@@ -3,83 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Proposal</title>
+    <title>Special Days for My Mrs Dhruvi Kapidia</title>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background: linear-gradient(to right, #ff9a9e, #fad0c4);
             font-family: Arial, sans-serif;
             text-align: center;
+            padding: 20px;
         }
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
+
+        .dayContent {
+            display: none; /* By default, hide all day content */
         }
-        #buttons {
-            display: flex;
-            gap: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 18px;
-            border: none;
-            cursor: pointer;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-        #yes {
-            background-color: #ff4d6d;
-            color: white;
-        }
-        #no {
-            background-color: #ccc;
-        }
+
         #message {
-            margin-top: 20px;
-            font-size: 20px;
+            font-size: 1.5em;
+            margin-bottom: 20px;
             font-weight: bold;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #FF6347;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        div {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1 id="title">Will you be my valentines Miss's Dhruvi Patel, I would like to turn you into MY Mrs for the day😶‍🌫️<3</h1>
-    <div id="buttons">
-        <button id="yes" onclick="sayYes()">Yes</button>
-        <button id="no" onclick="sayNo()">No</button>
+    <div id="message"></div>
+
+    <div id="roseDay" class="dayContent">
+        <h1>Rose Day</h1>
+        <p>Happy Rose Day, My Mrs Dhruvi Kapidia! You are as beautiful as a rose in my life. 🌹</p>
     </div>
-    <p id="message"></p>
+
+    <div id="proposeDay" class="dayContent">
+        <h1>Propose Day</h1>
+        <p>On this Propose Day, I want to tell you once again that you are my everything, My Mrs Dhruvi Kapidia! 💍</p>
+    </div>
+
+    <div id="chocolateDay" class="dayContent">
+        <h1>Chocolate Day</h1>
+        <p>Sweet like chocolate, My Mrs Dhruvi Kapidia! Wishing you a day full of sweetness. 🍫</p>
+    </div>
+
+    <div id="teddyDay" class="dayContent">
+        <h1>Teddy Day</h1>
+        <p>My Mrs Dhruvi Kapidia, you're my teddy bear, always keeping me warm with your love. 🧸</p>
+    </div>
+
+    <div id="promiseDay" class="dayContent">
+        <h1>Promise Day</h1>
+        <p>On Promise Day, I promise to love you forever and always, My Mrs Dhruvi Kapidia! 💖</p>
+    </div>
+
+    <div id="kissDay" class="dayContent">
+        <h1>Kiss Day</h1>
+        <p>Sending you all my love with a kiss, My Mrs Dhruvi Kapidia! 💋</p>
+    </div>
+
+    <div id="hugDay" class="dayContent">
+        <h1>Hug Day</h1>
+        <p>On Hug Day, I just want to say you're my everything, My Mrs Dhruvi Kapidia! 🤗</p>
+    </div>
 
     <script>
-        let noClickCount = 0;
-        const messages = [
-            "Whaaaa butt whyy nott??🥺🥺", 
-            "Baeee cmonnn😔😔", 
-            "Click yes already otherwise ill kidnap Daksh & Reeyan😾😾", 
-            "Baeee iluvvyouu thoo🥺🫶🏽", 
-            "Bae pleasseeeeee://", 
-            "But whyyyy nottt☹️☹️", 
-            "Pleasee clicks yess baeeeee☹️", 
-            "Baeee ill buyyy youuuu soo muchh teddy bears🥺🧸", 
-            "YKW, watch me disable the 'No' button😡😡"
-        ];
-        function sayNo() {
-            if (noClickCount < 9) {
-                document.getElementById("message").innerText = messages[noClickCount];
-                noClickCount++;
-                document.getElementById("yes").style.fontSize = (18 + noClickCount * 5) + "px";
-            } else {
-                document.getElementById("no").remove();
-                document.getElementById("message").innerText = "Haahahha now what huh, SAY YES😈";
+        // Function to display the content based on the current date
+        function showDayContent() {
+            // Get current date
+            const today = new Date();
+            const dayOfMonth = today.getDate();
+            const month = today.getMonth() + 1; // January is 0
+            const year = today.getFullYear();
+
+            // Define the dates for each special day
+            const specialDays = {
+                "roseDay": { day: 7, month: 2 },
+                "proposeDay": { day: 8, month: 2 },
+                "chocolateDay": { day: 9, month: 2 },
+                "teddyDay": { day: 10, month: 2 },
+                "promiseDay": { day: 11, month: 2 },
+                "kissDay": { day: 12, month: 2 },
+                "hugDay": { day: 13, month: 2 }
+            };
+
+            // Loop through the days and check if today is any of the special days
+            for (let key in specialDays) {
+                let specialDay = specialDays[key];
+                if (specialDay.day === dayOfMonth && specialDay.month === month) {
+                    document.getElementById(key).style.display = 'block'; // Show the corresponding content
+                    document.getElementById("message").innerHTML = `Today is ${capitalizeFirstLetter(key)}!`;
+                } else {
+                    document.getElementById(key).style.display = 'none'; // Hide content for days that aren't today
+                }
             }
         }
-        function sayYes() {
-            document.getElementById("message").innerText = "YAAAAYYYYYYYY, I KNEW YOU'D SAY YESS POOKIEEE🧸💕, dw I promise to watch anime and read romance books with you late at night📖😴, and I promise to put ur needs FIRST🫠🍫. I'll make sure you get the Dogs you want bae😘🐾";
-            document.getElementById("buttons").remove();
+
+        // Helper function to capitalize the first letter of the string
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
         }
+
+        // Run the function when the page loads
+        window.onload = showDayContent;
     </script>
 </body>
 </html>
