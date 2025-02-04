@@ -6,34 +6,67 @@
     <title>Special Days for My Mrs Dhruvi Kapidia</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             text-align: center;
             padding: 20px;
+            background: linear-gradient(to right, #FF7F7F, #FFB6C1); /* Red to Pink gradient */
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .dayContent {
             display: none; /* By default, hide all day content */
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 100%;
+            margin-top: 20px;
         }
 
         #message {
-            font-size: 1.5em;
-            margin-bottom: 20px;
+            font-size: 1.8em;
             font-weight: bold;
+            margin-bottom: 20px;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         h1 {
-            font-size: 2em;
+            font-size: 2.5em;
             color: #FF6347;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
         p {
-            font-size: 1.2em;
-            color: #333;
+            font-size: 1.4em;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
 
-        div {
-            margin-top: 20px;
+        #oopsMessage {
+            font-size: 1.6em;
+            font-weight: bold;
+            margin-top: 30px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 100%;
+            color: #FF6347;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
+
+        .oopsText {
+            font-size: 1.2em;
+            color: #FFD700;
+            margin-top: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -74,6 +107,13 @@
         <p>On Hug Day, I just want to say you're my everything, My Mrs Dhruvi Kapidia! 🤗</p>
     </div>
 
+    <!-- Oops message -->
+    <div id="oopsMessage" style="display: none;">
+        <h1>Oops, you have to wait!</h1>
+        <p>For now, the magic of LoVe is hidden. 🪄💌</p>
+        <p class="oopsText">But don't worry, the day of magic will arrive soon!</p>
+    </div>
+
     <script>
         // Function to display the content based on the current date
         function showDayContent() {
@@ -94,15 +134,23 @@
                 "hugDay": { day: 13, month: 2 }
             };
 
+            let found = false;
+
             // Loop through the days and check if today is any of the special days
             for (let key in specialDays) {
                 let specialDay = specialDays[key];
                 if (specialDay.day === dayOfMonth && specialDay.month === month) {
                     document.getElementById(key).style.display = 'block'; // Show the corresponding content
                     document.getElementById("message").innerHTML = `Today is ${capitalizeFirstLetter(key)}!`;
+                    found = true;
                 } else {
                     document.getElementById(key).style.display = 'none'; // Hide content for days that aren't today
                 }
+            }
+
+            // If it's not one of the special days, show the "Oops" message
+            if (!found) {
+                document.getElementById("oopsMessage").style.display = 'block';
             }
         }
 
