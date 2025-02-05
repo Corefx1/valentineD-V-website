@@ -9,7 +9,7 @@
             font-family: 'Arial', sans-serif;
             text-align: center;
             padding: 20px;
-            background: linear-gradient(to right, #FF7F7F, #FFB6C1); /* Red to Pink gradient */
+            background: linear-gradient(to right, #FF7F7F, #FFB6C1);
             color: white;
             min-height: 100vh;
             display: flex;
@@ -19,7 +19,7 @@
         }
 
         .dayContent {
-            display: none; /* Hide all day content by default */
+            display: none;
             background-color: rgba(0, 0, 0, 0.6);
             padding: 20px;
             border-radius: 10px;
@@ -33,41 +33,8 @@
             font-weight: bold;
             margin-bottom: 20px;
             color: #FFD700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        h1 {
-            font-size: 2.5em;
-            color: #FF6347;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        p {
-            font-size: 1.4em;
-            color: #fff;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-        }
-
-        #oopsMessage {
-            font-size: 1.6em;
-            font-weight: bold;
-            margin-top: 30px;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 30px;
-            border-radius: 10px;
-            max-width: 600px;
-            width: 100%;
-            color: #FF6347;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .oopsText {
-            font-size: 1.2em;
-            color: #FFD700;
-            margin-top: 10px;
-        }
-
-        /* Styling for URL pieces */
         .url-piece {
             font-size: 1.4em;
             font-weight: bold;
@@ -79,18 +46,15 @@
             margin-top: 20px;
         }
 
-        /* Special styling for final message */
-        .congrats {
-            font-size: 1.8em;
+        .final-message {
+            font-size: 1.6em;
             font-weight: bold;
             color: #FFD700;
             background-color: rgba(0, 0, 0, 0.7);
             padding: 20px;
             border-radius: 10px;
             margin-top: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-
     </style>
 </head>
 <body>
@@ -98,63 +62,53 @@
 
     <div id="roseDay" class="dayContent">
         <h1>Rose Day</h1>
-        <p>Happy Rose Day, My Mrs Dhruvi Kapidia! You are MORE beautiful than a rose infact you're the seed which grows beautiful flowers🌹</p>
+        <p>Happy Rose Day, My Mrs Dhruvi Kapidia! 🌹</p>
         <div class="url-piece">https://vivek342-</div>
     </div>
 
     <div id="proposeDay" class="dayContent">
         <h1>Propose Day</h1>
-        <p>On this Propose Day, I promise not to get loud at you anymore🥺, My Mrs Dhruvi Kapidia! 💍</p>
+        <p>On this Propose Day, I promise not to get loud at you anymore🥺! 💍</p>
         <div class="url-piece">bot.github.io/</div>
     </div>
 
     <div id="chocolateDay" class="dayContent">
         <h1>Chocolate Day</h1>
-        <p>Sweet like chocolate, My Mrs Dhruvi Kapidia! Wishing you a day full of sweetness, but i know u hate sweetness so i wish you a day full of spicyness💀🍫</p>
+        <p>Sweet like chocolate, My Mrs Dhruvi Kapidia! 🍫</p>
         <div class="url-piece">ValentineDayDV</div>
     </div>
 
     <div id="teddyDay" class="dayContent">
         <h1>Teddy Day</h1>
-        <p>My Mrs Dhruvi Kapidia, I shall kill all those teddy bears who get the attention from u that i deserve.🧸</p>
+        <p>I shall kill all those teddy bears who get the attention from u that I deserve. 🧸</p>
         <div class="url-piece">Card-website/</div>
     </div>
 
     <div id="promiseDay" class="dayContent">
         <h1>Promise Day</h1>
-        <p>On Promise Day, I promise to fall for you more everyday crushing on you even more even though your mine, My Mrs Dhruvi Kapidia! 💖</p>
+        <p>I promise to fall for you more every day. 💖</p>
         <div class="url-piece">?love=</div>
     </div>
 
     <div id="kissDay" class="dayContent">
         <h1>Kiss Day</h1>
-        <p>18+ bae smh we goto wait😔😠💋</p>
+        <p>18+ bae smh we gotta wait😔💋</p>
         <div class="url-piece">forever</div>
     </div>
 
     <div id="hugDay" class="dayContent">
         <h1>Hug Day</h1>
-        <p>On Hug Day, Your not just the sun for me bae but your my moon as well now teleport and hug me already!! My Mrs Dhruvi Kapidia! 🤗</p>
+        <p>Teleport and hug me already!! 🤗</p>
         <div class="url-piece">&always</div>
-        <div class="congrats">Congrats my dear Mrs Kapidia!! 🥳🎉 You have completed the Valentine's Day Awaits quest!</div>
-    </div>
-
-    <!-- Oops message -->
-    <div id="oopsMessage" style="display: none;">
-        <h1>Oops, you have to wait!</h1>
-        <p>For now my love the magic of LoVe is hidden🪄💌 (Dw im not talking about Daksh or Reeyan even though i love them soo muchh😌🫶🏻.)</p>
-        <p class="oopsText">The 7 days towards Valentines quest awaits you my sunshine☀️!.....</p>
+        <div class="final-message">Oops, looks like you need one more piece, go look for it in your husband's heart💝</div>
     </div>
 
     <script>
-        // Function to display the content based on the current date
         function showDayContent() {
-            // Get current date
             const today = new Date();
             const dayOfMonth = today.getDate();
-            const month = today.getMonth() + 1; // January is 0
+            const month = today.getMonth() + 1;
 
-            // Define the dates for each special day
             const specialDays = {
                 "roseDay": { day: 7, month: 2 },
                 "proposeDay": { day: 8, month: 2 },
@@ -166,31 +120,26 @@
             };
 
             let found = false;
-
-            // Loop through the days and check if today is a special day
             for (let key in specialDays) {
                 let specialDay = specialDays[key];
                 if (specialDay.day === dayOfMonth && specialDay.month === month) {
-                    document.getElementById(key).style.display = 'block'; // Show the corresponding content
+                    document.getElementById(key).style.display = 'block';
                     document.getElementById("message").innerHTML = `Today is ${capitalizeFirstLetter(key)}!`;
                     found = true;
                 } else {
-                    document.getElementById(key).style.display = 'none'; // Hide other days' content
+                    document.getElementById(key).style.display = 'none';
                 }
             }
 
-            // If it's not a special day, show the "Oops" message
             if (!found) {
-                document.getElementById("oopsMessage").style.display = 'block';
+                document.getElementById("message").innerHTML = "Oops, the magic of love is still hidden! 🪄💌";
             }
         }
 
-        // Capitalize first letter of string
         function capitalizeFirstLetter(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
 
-        // Run function on page load
         window.onload = showDayContent;
     </script>
 </body>
